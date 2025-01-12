@@ -1,19 +1,23 @@
 {
-  "name": "n8n-nodes-<...>",
+  "name": "n8n-nodes-instasent",
   "version": "0.1.0",
-  "description": "",
+  "description": "n8n node for Instasent integration",
   "keywords": [
-    "n8n-community-node-package"
+    "n8n",
+    "n8n-node",
+    "n8n-community-node-package",
+    "instasent",
+    "sms"
   ],
   "license": "MIT",
   "homepage": "",
   "author": {
-    "name": "",
-    "email": ""
+    "name": "Instasent",
+    "email": "dev@instasent.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/<...>/n8n-nodes-<...>.git"
+    "url": "https://github.com/dev-instasent/n8n-nodes-instasent.git"
   },
   "engines": {
     "node": ">=18.10",
@@ -36,12 +40,10 @@
   "n8n": {
     "n8nNodesApiVersion": 1,
     "credentials": [
-      "dist/credentials/ExampleCredentialsApi.credentials.js",
-      "dist/credentials/HttpBinApi.credentials.js"
+      "dist/credentials/InstasentIngestApi.credentials.js"
     ],
     "nodes": [
-      "dist/nodes/ExampleNode/ExampleNode.node.js",
-      "dist/nodes/HttpBin/HttpBin.node.js"
+      "dist/nodes/Instasent/Ingest/InstasentIngest.node.js"
     ]
   },
   "devDependencies": {
@@ -49,11 +51,13 @@
     "eslint": "^8.56.0",
     "eslint-plugin-n8n-nodes-base": "^1.16.1",
     "gulp": "^4.0.2",
+    "n8n-core": "*",
     "n8n-workflow": "*",
     "prettier": "^3.3.2",
     "typescript": "^5.5.3"
   },
   "peerDependencies": {
+    "n8n-core": "*",
     "n8n-workflow": "*"
   }
 }
