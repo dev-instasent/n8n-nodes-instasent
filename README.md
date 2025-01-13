@@ -29,7 +29,7 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
   * Remove a contact from your Data Source
   * Required field: User ID
 
-### Data SourceEvent Operations
+### Data Source Event Operations
 
 * **Create Event**
   * Track customer events with custom parameters
