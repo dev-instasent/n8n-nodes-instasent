@@ -5,35 +5,13 @@ import {
 	INodeProperties,
 } from 'n8n-workflow';
 
-export class InstasentIngestApi implements ICredentialType {
-	name = 'instasentIngestApi';
+export class InstasentProductApi implements ICredentialType {
+	name = 'instasentProductApi';
 	// eslint-disable-next-line n8n-nodes-base/cred-class-field-display-name-missing-api
-	displayName = 'Instasent Data Source API';
+	displayName = 'Instasent Product API';
 	documentationUrl = 'https://docs.instasent.com/';
 	icon = 'file:instasent.svg' as any;
 	properties: INodeProperties[] = [
-		{
-			displayName: 'Project UID',
-			name: 'projectUid',
-			type: 'string',
-			typeOptions: {
-				password: false,
-			},
-			default: '',
-			required: true,
-			description: 'Your Instasent Project UID',
-		},
-		{
-			displayName: 'Data Source ID',
-			name: 'datasourceId',
-			type: 'string',
-			typeOptions: {
-				password: false,
-			},
-			default: '',
-			required: true,
-			description: 'Your Instasent Data Source ID',
-		},
 		{
 			displayName: 'API Key',
 			name: 'apiToken',
@@ -43,8 +21,21 @@ export class InstasentIngestApi implements ICredentialType {
 			},
 			default: '',
 			required: true,
-			description: 'Your Instasent Data Source API Bearer Token',
+			description:
+				'Your Instasent Product API Bearer Token. Create one in your Instasent project settings.',
 		},
+		{
+			displayName: 'Project UID',
+			name: 'projectUid',
+			type: 'string',
+			typeOptions: {
+				password: false,
+			},
+			default: '',
+			required: true,
+			description:
+				'The UID of the project to interact with. Go to your Instasent project settings to find it.',
+		}
 	];
 
 	authenticate: IAuthenticateGeneric = {
@@ -58,7 +49,7 @@ export class InstasentIngestApi implements ICredentialType {
 
 	test: ICredentialTestRequest = {
 		request: {
-			baseURL: '=https://api.instasent.com/v1/project/{{$credentials.projectUid}}/datasource/{{$credentials.datasourceId}}/stream',
+			baseURL: '=https://api.instasent.com/v1/project/{{$credentials.projectUid}}',
 			method: 'GET',
 			headers: {
 				Authorization: '=Bearer {{$credentials.apiToken}}',

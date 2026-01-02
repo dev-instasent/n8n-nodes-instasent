@@ -6,7 +6,7 @@ import {
 } from 'n8n-workflow';
 
 export interface IInstasentIngestApiCredentials {
-	projectId: string;
+	projectUid: string;
 	datasourceId: string;
 	apiToken: string;
 }
@@ -39,7 +39,7 @@ export interface IEventParameterSpec {
 }
 
 export function getBaseUrl(credentials: IInstasentIngestApiCredentials): string {
-	return `https://api.instasent.com/v1/project/${credentials.projectId}/datasource/${credentials.datasourceId}`;
+	return `https://api.instasent.com/v1/project/${credentials.projectUid}/datasource/${credentials.datasourceId}`;
 }
 
 export async function instasentApiRequest(
@@ -61,6 +61,8 @@ export async function instasentApiRequest(
 		qs,
 		body,
 		json: true,
+		// rejectUnauthorized: false,
+		// strictSSL: false,
 	};
 
 	if (body) {

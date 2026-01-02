@@ -4,7 +4,6 @@ import {
 	INodeExecutionData,
 	INodeType,
 	INodeTypeDescription,
-	NodeConnectionType,
 	NodeOperationError,
 } from 'n8n-workflow';
 
@@ -27,7 +26,7 @@ export class InstasentIngest implements INodeType {
 		group: ['input', 'output'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
-		description: 'Send contacts and events to an Instasent Data Source',
+		description: 'Ingest contacts and events into an Instasent Data Source for high-volume data collection',
 		defaults: {
 			name: 'Instasent Data Source',
 		},

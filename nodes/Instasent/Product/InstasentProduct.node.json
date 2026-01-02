@@ -1,0 +1,18 @@
+{
+	"node": "n8n-nodes-base.instasentProduct",
+	"nodeVersion": "1.0",
+	"codexVersion": "1.0",
+	"categories": ["Communication"],
+	"resources": {
+		"credentialDocumentation": [
+			{
+				"url": "https://help.instasent.com"
+			}
+		],
+		"primaryDocumentation": [
+			{
+				"url": "https://help.instasent.com"
+			}
+		]
+	}
+}
